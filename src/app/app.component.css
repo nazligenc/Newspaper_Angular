@@ -495,7 +495,7 @@
   }
 }
 .politics-business{
-   margin-top:70px;
+   margin-top:100px;
     width:1500px;
     height:800px;
 
@@ -748,13 +748,12 @@
   }
 }
 .recent-popular{
+  margin-top:100px;
   width:1500px;
   height:800px;
-  background-color: red;
 }
 .recentnews{
-  background-color: blue;
-  width:50%;
+  width:70%;
   height:100%;
 }
 .rn-header{
@@ -767,8 +766,7 @@
 .rn1{
   margin-top:20px;
   margin-left:180px;
-  background-color: yellow;
-  width:75%;
+  width:54%;
   height:22%;
 
 }
@@ -787,8 +785,7 @@
 .rn2{
   margin-top:20px;
   margin-left:180px;
-  background-color: yellow;
-  width:75%;
+  width:54%;
   height:30%;
   >span{
     width: 82%;
@@ -809,72 +806,77 @@
     font-size: 15px;
   }
 }
-.images{
-  width:35%;
-  height: 100%;
-  background-color: purple;
-  margin-left:750px;
-  margin-top:-632px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
 .i1{
-  width:100%;
-  height:20%;
-  background-color: antiquewhite;
+  width:45%;
+  height:72%;
+  margin-left:575px;
+  margin-top:-540px;
   >img{
     width:100%;
     height:100%;
   }
+
 }
 .i2{
-  margin-top:25px;
-  width:100%;
-  height:20%;
-  background-color: antiquewhite;
+  width:45%;
+  height:72%;
+  margin-left:575px;
+  margin-top:15px;
   >img{
     width:100%;
     height:100%;
   }
 }
 .i3{
-  margin-top:25px;
-  width:100%;
-  height:20%;
-  background-color: antiquewhite;
+  width:45%;
+  height:70%;
+  margin-left:575px;
+  margin-top:15px;
   >img{
     width:100%;
     height:100%;
   }
 }
+
+
+
 .popularposts{
-  background-color: orange;
   margin-top:-800px;
   margin-left:1013px;
   width:32.5%;
   height:100%;
 }
-.firstn{
-  width:100%;
-  height:17%;
+.pp-header{
+  text-decoration: underline;
+  font-size:20px;
+  margin-left:65px;
+  font-family:sans-serif;
+}
+.pp1{
+  margin-left:35px;
+  margin-top:20px;
+  width:90%;
+  height:100px;
+
 
 }
-.firstnumber{
-  width:20%;
-  height:100%;
+.pp1-number{
+  margin-left:30px;
+  width:10%;
+  height:150%;
   font-size:30px;
   display: flex;
-  justify-content: right;
   color: #d3d3d3; /* Açık gri renk */
   opacity: 1;
   font-family: 'Arial', 'Helvetica', sans-serif;
 
+
 }
-.firstcontent{
+.pp1-content{
+    width: 60%;
+    margin-top:-166px;
   >h4{
     width:80%;
-    margin-top:-100px;
     margin-left:80px;
     font-size:15px;
     font-family: sans-serif;
@@ -885,93 +887,172 @@
 
   }
 }
-.second{
-  width:100%;
-  height:17%;
+.pp2{
+  margin-left:35px;
   margin-top:30px;
+  width:90%;
+  height:100px;
 }
-.second-number{
-  width:20%;
-  height:100%;
+.pp2-number{
+  margin-left:30px;
+  width:10%;
+  height:150%;
   font-size:30px;
   display: flex;
-  justify-content: right;
   color: #d3d3d3; /* Açık gri renk */
   opacity: 1;
   font-family: 'Arial', 'Helvetica', sans-serif;
 
+
 }
-.second-content{
+.pp2-content{
+  width: 60%;
+  margin-top:-145px;
   >h4{
     width:80%;
-    margin-top:-100px;
+    margin-top:-130px;
     margin-left:80px;
     font-size:15px;
     font-family: sans-serif;
+
   }
   >span{
     margin-left:80px;
 
   }
 }
-.third{
-  width:100%;
-  height:17%;
+.pp3{
+  margin-left:35px;
   margin-top:30px;
-
+  width:90%;
+  height:100px;
 }
-.third-number{
-  width:20%;
-  height:100%;
+.pp3-number{
+  margin-left:30px;
+  width:10%;
+  height:150%;
   font-size:30px;
   display: flex;
-  justify-content: right;
   color: #d3d3d3; /* Açık gri renk */
   opacity: 1;
   font-family: 'Arial', 'Helvetica', sans-serif;
+
+
 }
-.third-content{
+.pp3-content{
+  width: 60%;
+  margin-top:-145px;
   >h4{
     width:80%;
-    margin-top:-100px;
+    margin-top:-130px;
     margin-left:80px;
     font-size:15px;
     font-family: sans-serif;
+
   }
   >span{
     margin-left:80px;
 
   }
 }
-.fourth{
-  width:100%;
-  height:17%;
+.pp4{
+  margin-left:35px;
   margin-top:30px;
-
+  width:90%;
+  height:100px;
 }
-.fourth-number{
-  width:20%;
-  height:100%;
+.pp4-number{
+  margin-left:30px;
+  width:10%;
+  height:150%;
   font-size:30px;
   display: flex;
-  justify-content: right;
   color: #d3d3d3; /* Açık gri renk */
   opacity: 1;
   font-family: 'Arial', 'Helvetica', sans-serif;
 
+
 }
-.fourth-content{
+.pp4-content{
+  width: 60%;
+  margin-top:-145px;
   >h4{
     width:80%;
-    margin-top:-100px;
+    margin-top:-130px;
     margin-left:80px;
     font-size:15px;
     font-family: sans-serif;
+
   }
   >span{
     margin-left:80px;
 
   }
 }
+.last{
+  margin-top:-50px;
+  background-color: whitesmoke;
+  width:100%;
+  height:250px;
+  display: flex;
+}
+.last-header{
+  width:20%;
+  margin-top:80px;
+  margin-left:160px;
+  font-size:20px;
+  font-family: sans-serif;
+  font-weight:300;
+
+
+
+}
+.last-content{
+  position:absolute;
+  justify-content: right;
+  margin-left:160px;
+  margin-top:100px;
+  width:35%;
+  >p{
+    width: 82%;
+    font-size: 15px;
+    color: gray;
+    opacity: 1;
+  }
+}
+.last-search{
+  display: flex;
+  justify-content: left;
+  margin-left:300px;
+  width:50%;
+  height: 100%;
+}
+.searchinput {
+  margin-right: 10px;
+  margin-top: 100px;
+  width: 400px;
+  height: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 30px;
+  border: none;
+  background: #fff;
+  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid #ccc;
+  font-family: inherit;
+  font-size:1rem;
+
+
+}
+
+.search-button{
+  margin-left:-1px;
+}
+
+
+
+
+
+
 
 
