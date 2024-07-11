@@ -1,1 +1,29 @@
+/* Scrollbar genişliği */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Scrollbar sapı (thumb) */
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 10px;
+}
+
+/* Scrollbar sapı hover efekti */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Scrollbar arka planı (track) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+  margin: 5px 0; /* Yukarı ve aşağı boşluklar */
+}
+
+::-webkit-scrollbar-button {
+
+}
+
+
 
