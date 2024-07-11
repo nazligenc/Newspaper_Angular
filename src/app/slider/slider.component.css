@@ -25,7 +25,7 @@
 }
 
 .image {
-  height: 350px;
+  height: 370px;
   width: 90%;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .content-block {
-  height: 350px;
+  height: 370px;
   width: 90%;
   justify-content: center;
   place-items: center;
@@ -92,24 +92,23 @@
 .button-slider-prev {
   width: 20px;
   position: absolute;
-  top:180px;
-  color:gray;
+  top: 180px;
+  color: gray;
   opacity: 1;
-  font-size:18px;
-  left:10px;
-  cursor:pointer;
-
+  font-size: 18px;
+  left: 10px;
+  cursor: pointer;
 }
 
 .button-slider-next {
   width: 20px;
   position: absolute;
-  top:180px;
-  color:gray;
+  top: 180px;
+  color: gray;
   opacity: 1;
-  font-size:18px;
-  right:10px;
-  cursor:pointer;
+  font-size: 18px;
+  right: 10px;
+  cursor: pointer;
 }
 
 .indicators {
@@ -118,4 +117,16 @@
   margin-top: 10px;
 }
 
+.indicator {
+  width: 20px;
+  height: 4px;
+  background-color: lightgrey;
+  margin: 0 5px;
+  margin-top: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
+.indicator.active {
+  background-color: green;
+}

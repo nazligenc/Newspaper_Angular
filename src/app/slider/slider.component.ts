@@ -3,13 +3,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.css'] // Corrected from styleUrl to styleUrls
+  styleUrls: ['./slider.component.css']
 })
 export class SliderComponent {
 
   currentIndex = 0;
-  isTransitioning = true;
-  slides:any = [
+  isTransitioning = false;
+  slides: any = [
     {
       image: '/assets/image1.jpg',
       edit: "EDITOR'S PICK",
@@ -21,19 +21,12 @@ export class SliderComponent {
     {
       image: '/assets/image1.jpg',
       edit: "EDITOR'S PICK",
-      title: 'Another News Article',
+      title: 'News Needs to Meet Its Audiences Where They Are',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vero obcaecati natus adipisci necessitatibus eius, enim vel sit ad reiciendis.',
-      author: 'Jane Doe',
-      date: 'Jul10'
+      author: 'Dave Rogers',
+      date: 'Jun14'
     },
-    {
-      image: '/assets/image1.jpg',
-      edit: "EDITOR'S PICK",
-      title: 'Another News Article',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vero obcaecati natus adipisci necessitatibus eius, enim vel sit ad reiciendis.',
-      author: 'Jane Doe',
-      date: 'Jul10'
-    }
+
     // Add more slides as needed
   ];
 
@@ -46,6 +39,12 @@ export class SliderComponent {
   prevSlide() {
     this.isTransitioning = true;
     this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+    setTimeout(() => this.isTransitioning = false, 500); // Adjust timeout to match CSS transition
+  }
+
+  goToSlide(index: number) {
+    this.isTransitioning = true;
+    this.currentIndex = index;
     setTimeout(() => this.isTransitioning = false, 500); // Adjust timeout to match CSS transition
   }
 

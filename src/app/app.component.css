@@ -1048,7 +1048,10 @@
 .search-button{
   margin-left:-1px;
 }
-
+.end{
+  width:20px;
+  height: 100px;
+}
 
 
 

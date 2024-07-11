@@ -28,4 +28,12 @@
     <i class="fa-solid fa-arrow-right"></i>
   </div>
 
+  <div class="indicators">
+    <div
+      *ngFor="let slide of slides; let i = index"
+      class="indicator"
+      [class.active]="currentIndex === i"
+      (click)="goToSlide(i)"
+    ></div>
+  </div>
 </div>
