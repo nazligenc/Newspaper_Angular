@@ -1,19 +1,22 @@
 <div class="header-top">
   <div class="container">
     <div class="left-container">
-      Meranda
+      Nazlı Genç
     </div>
     <div class="right-container">
       <div class="icons">
-        <i class="fa-brands fa-facebook-f fa-2xs"></i>
-        <i class="fa-brands fa-twitter fa-2xs"></i>
-        <i class="fa-brands fa-instagram fa-2xs"></i>
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
       </div>
       <div class="search">
         <input type="text" class="search-input" placeholder="Search...">
         <button type="submit" class="search-button">
-          <i class="fa-solid fa-magnifying-glass fa"></i>
+          <i class="fa-solid fa-magnifying-glass"></i>
         </button>
+      </div>
+      <div class="hamburger" (click)="toggleMenu()">
+        &#9776;
       </div>
     </div>
   </div>
@@ -31,4 +34,17 @@
       <li><a href="/contact">CONTACT</a></li>
     </ul>
   </div>
+</div>
+<div class="dropdown-menu" [class.open]="isMenuOpen">
+  <div class="close-button" (click)="toggleMenu()">&#10005;</div>
+  <ul>
+    <li><a href="/home">Home</a></li>
+    <li><a href="/categories">Categories</a></li>
+    <li><a href="/politics">Politics</a></li>
+    <li><a href="/business">Business</a></li>
+    <li><a href="/health">Health</a></li>
+    <li><a href="/design">Design</a></li>
+    <li><a href="/sport">Sport</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
 </div>
