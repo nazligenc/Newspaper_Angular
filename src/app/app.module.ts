@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ContactComponent } from './contact/contact.component';
+import { ServiceComponent } from './service/service.component';
+import { HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,11 +18,14 @@ import { ContactComponent } from './contact/contact.component';
     HomeComponent,
     HeaderComponent,
     CategoriesComponent,
-    ContactComponent
+    ContactComponent,
+    ServiceComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,7 +4,7 @@
       <div class="ic_alt">
         <div class="image">
           <div>
-            <img [src]="slide.image" alt="Image">
+            <img [src]="slide.image" alt="Image" (error)="onImageError($event)">
           </div>
         </div>
         <div class="content-block">

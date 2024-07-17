@@ -1,54 +1,62 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ServiceComponent } from '../service/service.component';
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.css']
+  styleUrls: ['./slider.component.css'],
+  providers: [ServiceComponent]
 })
-export class SliderComponent {
-
+export class SliderComponent implements OnInit {
   currentIndex = 0;
   isTransitioning = false;
-  slides: any = [
-    {
-      image: '/assets/image1.jpg',
-      edit: "EDITOR'S PICK",
-      title: 'News Needs to Meet Its Audiences Where They Are',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vero obcaecati natus adipisci necessitatibus eius, enim vel sit ad reiciendis.',
-      author: 'Dave Rogers',
-      date: 'Jun14'
-    },
-    {
-      image: '/assets/image1.jpg',
-      edit: "EDITOR'S PICK",
-      title: 'News Needs to Meet Its Audiences Where They Are',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vero obcaecati natus adipisci necessitatibus eius, enim vel sit ad reiciendis.',
-      author: 'Dave Rogers',
-      date: 'Jun14'
-    },
+  slides: any[] = [];
 
-    // Add more slides as needed
-  ];
+  constructor(private serviceComponent: ServiceComponent) {}
+
+  ngOnInit() {
+    this.serviceComponent.getTopHeadlines().subscribe(
+      data => {
+        console.log('Received data:', data);
+        this.slides = data.articles.slice(0, 3).map((article: any) => ({
+          image: article.urlToImage || '/assets/default-image.jpg',
+          edit: "EDITOR'S PICK",
+          title: article.title,
+          description: article.description,
+          author: article.author || 'Unknown Author',
+          date: article.publishedAt ? new Date(article.publishedAt).toDateString() : 'Unknown Date'
+        }));
+        console.log('Slides:', this.slides);
+      },
+      error => {
+        console.error('Error fetching data:', error);
+      }
+    );
+  }
 
   nextSlide() {
     this.isTransitioning = true;
     this.currentIndex = (this.currentIndex + 1) % this.slides.length;
-    setTimeout(() => this.isTransitioning = false, 500); // Adjust timeout to match CSS transition
+    setTimeout(() => this.isTransitioning = false, 500);
   }
 
   prevSlide() {
     this.isTransitioning = true;
     this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
-    setTimeout(() => this.isTransitioning = false, 500); // Adjust timeout to match CSS transition
+    setTimeout(() => this.isTransitioning = false, 500);
   }
 
   goToSlide(index: number) {
     this.isTransitioning = true;
     this.currentIndex = index;
-    setTimeout(() => this.isTransitioning = false, 500); // Adjust timeout to match CSS transition
+    setTimeout(() => this.isTransitioning = false, 500);
   }
 
   getTransform() {
     return `translateX(-${this.currentIndex * 100}%)`;
+  }
+
+  onImageError(event: any) {
+    event.target.src = '/assets/breakingNews.jpg';
   }
 }

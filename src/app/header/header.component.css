@@ -27,7 +27,7 @@
 
 .icons {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   margin-right: 20px;
   font-size: 15px;
 }
@@ -90,7 +90,7 @@
 }
 
 .side-navbar ul li {
-  font-size: 15px;
+  font-size: 17px;
   cursor: pointer;
 }
 
