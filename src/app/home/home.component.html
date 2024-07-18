@@ -136,157 +136,84 @@
   <div class="politics">
     <div class="header-politics">Politics</div>
     <div class="politics-content">
-      <div class="pc1">
-        <div class="pc1-image">
-          <img src="/assets/image1.jpg">
+      <div *ngFor="let article of politicsArticles; let i = index" [class]="'pc' + (i + 1)">
+        <div class="pc{{ i + 1 }}-image">
+          <img [src]="article.urlToImage || '/assets/breakingNews.jpg'" alt="Article Image">
         </div>
-        <div class="pc1-content">
-          <h2>{{}}</h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-          <span>Dave Rogers</span><br>
-          <span>Jun14</span>
-        </div>
-      </div>
-      <div class="pc2">
-        <div class="pc2-image">
-          <img src="/assets/image1.jpg">
-        </div>
-        <div class="pc2-content">
-          <h2>News Needs to Meet Its Audiences Where They Are</h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-          <span>Dave Rogers</span><br>
-          <span>Jun14</span>
-        </div>
-      </div>
-      <div class="pc3">
-        <div class="pc3-image">
-          <img src="/assets/image1.jpg">
-        </div>
-        <div class="pc3-content">
-          <h2>News Needs to Meet Its Audiences Where They Are</h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-          <span>Dave Rogers</span><br>
-          <span>Jun14</span>
+        <div class="pc{{ i + 1 }}-content">
+          <h2>{{ article.title }}</h2>
+          <p>{{ article.description }}</p>
+          <span>{{ article.author }}</span><br>
+          <span>{{ article.publishedAt | date }}</span>
         </div>
       </div>
     </div>
   </div>
+
   <div class="business">
     <div class="header-business">Business</div>
     <div class="business-content">
-      <div class="bc1">
-        <div class="bc1-image">
-          <img src="/assets/image1.jpg">
+      <ng-container *ngFor="let article of articles.slice(9, 12); let i = index">
+        <div [class]="'bc' + (i + 1)" *ngIf="articles.length > 9 + i">
+          <div class="bc{{ i + 1 }}-image">
+            <img [src]="article.urlToImage || '/assets/breakingNews.jpg'" alt="Article Image">
+          </div>
+          <div class="bc{{ i + 1 }}-content">
+            <h2>{{ article.title }}</h2>
+            <p>{{ article.description }}</p>
+            <span>{{ article.author }}</span><br>
+            <span>{{ article.publishedAt | date: 'mediumDate' }}</span>
+          </div>
         </div>
-        <div class="bc1-content">
-          <h2>News Needs to Meet Its Audiences Where They Are</h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-          <span>Dave Rogers</span><br>
-          <span>Jun14</span>
-        </div>
-      </div>
-      <div class="bc2">
-        <div class="bc2-image">
-          <img src="/assets/image1.jpg">
-        </div>
-        <div class="bc2-content">
-          <h2>News Needs to Meet Its Audiences Where They Are</h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-          <span>Dave Rogers</span><br>
-          <span>Jun14</span>
-        </div>
-      </div>
-      <div class="bc3">
-        <div class="bc3-image">
-          <img src="/assets/image1.jpg">
-        </div>
-        <div class="bc3-content">
-          <h2>News Needs to Meet Its Audiences Where They Are</h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-          <span>Dave Rogers</span><br>
-          <span>Jun14</span>
-        </div>
-      </div>
+      </ng-container>
     </div>
   </div>
+
+
+
 </div>
 <div class="recent-popular">
   <div class="recentnews">
     <div class="rn-header">Recent News</div>
-    <div class="rn1">
+    <div class="rn1" *ngFor="let article of randomRecentNews">
       <div class="r1-content">
-        <h2>News Needs to Meet Its Audiences Where They Are</h2>
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-        <span>Dave Rogers</span><br>
-        <span>Jun14</span>
-      </div>
-    </div>
-    <div class="rn1">
-      <div class="r1-content">
-        <h2>News Needs to Meet Its Audiences Where They Are</h2>
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-        <span>Dave Rogers</span><br>
-        <span>Jun14</span>
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.description }}</p>
+        <span>{{ article.author }}</span><br>
+        <span>{{ article.publishedAt | date: 'mediumDate' }}</span>
       </div>
     </div>
     <div class="rn2">
       <span class="rn2editorspick">EDITOR'S PICK</span>
-      <h2>News Needs to Meet Its Audiences Where They Are</h2>
-      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-
+      <h2>{{ randomRecentNews[0]?.title }}</h2>
+      <p>{{ randomRecentNews[0]?.description }}</p>
       <div style="display: flex; flex-direction: column">
-        <span>Dave Rogers</span>
-        <span>Jun14 </span>
+        <span>{{ randomRecentNews[0]?.author }}</span>
+        <span>{{ randomRecentNews[0]?.publishedAt | date: 'mediumDate' }}</span>
       </div>
       <div class="i1">
-        <img src="/assets/image1.jpg">
-
+        <img [src]="randomRecentNews[0]?.urlToImage || '/assets/breakingNews.jpg'">
       </div>
       <div class="i2">
-        <img src="/assets/image1.jpg">
+        <img [src]="randomRecentNews[1]?.urlToImage || '/assets/breakingNews.jpg'">
       </div>
       <div class="i3">
-        <img src="/assets/image1.jpg">
+        <img [src]="randomRecentNews[2]?.urlToImage || '/assets/breakingNews.jpg'">
       </div>
     </div>
-
-
   </div>
   <div class="popularposts">
     <div class="pp-header">Popular Posts</div>
-    <div class="pp1">
-      <div class="pp1-number">01</div>
-      <div class="pp1-content">
-        <h4>News Needs to Meet Its Audiences Where They Are</h4>
-        <span>Dave Rogers in News</span>
+    <div class="pp1" *ngFor="let post of randomPopularPosts; let i = index">
+      <div class="pp{{ i + 1 }}-number">{{ '0' + (i + 1) }}</div>
+      <div class="pp{{ i + 1 }}-content">
+        <h4>{{ post.title }}</h4>
+        <span>{{ post.author }} in News</span>
       </div>
     </div>
-    <div class="pp2">
-      <div class="pp2-number">02</div>
-      <div class="pp2-content">
-        <h4>News Needs to Meet Its Audiences Where They Are</h4>
-        <span>Dave Rogers in News</span>
-      </div>
-    </div>
-    <div class="pp3">
-      <div class="pp3-number">03</div>
-      <div class="pp3-content">
-        <h4>News Needs to Meet Its Audiences Where They Are</h4>
-        <span>Dave Rogers in News</span>
-      </div>
-    </div>
-    <div class="pp4">
-      <div class="pp4-number">04</div>
-      <div class="pp4-content">
-        <h4>News Needs to Meet Its Audiences Where They Are</h4>
-        <span>Dave Rogers in News</span>
-      </div>
-    </div>
-
-
   </div>
-
 </div>
+
 <div class="seeallpopular-button">
   <button class="seeallpopular">SEE ALL POPULAR
     <i class="fa-solid fa-angle-right"></i>
@@ -296,7 +223,7 @@
 <div class="last">
   <div class="last-header">Newsletter Subscribe </div>
   <div class="last-content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis aspernatur ut at quae omnis pariatur obcaecati possimus nisi ea iste!</p>
+    <p> Get the latest news and exclusive content delivered straight to your inbox! Subscribe to our newsletter today!</p>
   </div>
   <div class="last-search">
     <div class="last-searchinput">
@@ -308,7 +235,6 @@
   </div>
 </div>
 <div class="end"></div>
-
 
 
 

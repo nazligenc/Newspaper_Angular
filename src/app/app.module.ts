@@ -10,6 +10,8 @@ import { CategoriesComponent } from './categories/categories.component';
 import { ContactComponent } from './contact/contact.component';
 import { ServiceComponent } from './service/service.component';
 import { HttpClientModule} from "@angular/common/http";
+import { AboutComponent } from './about/about.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -19,14 +21,16 @@ import { HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     CategoriesComponent,
     ContactComponent,
-    ServiceComponent
+    ServiceComponent,
+    AboutComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        NgOptimizedImage,
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

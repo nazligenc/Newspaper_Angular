@@ -51,5 +51,8 @@ export class ServiceComponent implements OnInit {
     const url = `${this.apiUrl}?country=${country}&category=${category}&apiKey=${this.apiKey}`;
     return this.http.get<any>(url);
   }
+  getPoliticsNews(country: string = 'us'): Observable<any> {
+    const url = `${this.apiUrl}?country=${country}&category=politics&apiKey=${this.apiKey}`;
+    return this.http.get<any>(url);
+  }
 }
-

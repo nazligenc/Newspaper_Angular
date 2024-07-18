@@ -1,7 +1,7 @@
 
 .image-contents{
   margin-top:50px;
-  height: 380px;
+  height: 400px;
   justify-content: center;
   display: flex;
 
@@ -176,7 +176,7 @@
 
   }
   >span{
-    margin-top:80px;
+    margin-top:100px;
     margin-left:-200px;
   }
 
@@ -202,19 +202,22 @@
   display:flex;
   margin-left:108px;
   margin-top:-120px;
-  width:70%;
+  width:60%;
   height:100%;
   >h4{
     margin-top:5px;
     margin-left:30px;
-    width: 80%;
+    width:100%;
     font-size:15px;
     font-family:sans-serif;
 
   }
   >span{
-    margin-top:80px;
+    margin-top:120px;
+    position: relative;
     margin-left:-200px;
+    width:200px;
+    height: 50px;
   }
 
 }
@@ -222,7 +225,7 @@
   width:90%;
   height:120px;
   margin-left:40px;
-  margin-top:30px;
+  margin-top:60px;
 
 }
 .c3-image{
@@ -333,7 +336,7 @@
   }
 }
 .third{
-  width:100%;
+  width:110%;
   height:17%;
   margin-top:30px;
 
@@ -352,11 +355,12 @@
   >h4{
     width:80%;
     margin-top:-100px;
-    margin-left:80px;
+    margin-left:82px;
     font-size:15px;
     font-family: sans-serif;
   }
   >span{
+
     margin-left:80px;
 
   }
@@ -393,7 +397,7 @@
 }
 .seealltrends-button{
   position: absolute;
-  margin-top:-100px;
+  margin-top:-95px;
   height:20px;
 
 }
@@ -995,7 +999,6 @@
   width:20px;
   height: 100px;
 }
-
 
 
 
