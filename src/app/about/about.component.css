@@ -308,10 +308,12 @@ h3 {
 .resume .func .skills-soft ul {
   display: flex;
   justify-content: space-between;
-  text-align: center;
+  text-align: left;
+  margin-left:20px;
 }
 .resume .func .skills-soft ul li {
   position: relative;
+
 
 }
 .resume .func .skills-soft ul li:hover svg .cbar {
