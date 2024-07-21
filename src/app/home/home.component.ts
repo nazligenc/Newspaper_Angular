@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceComponent } from '../service/service.component';
 
+
 @Component({
   selector: 'app-home',
   styleUrls: ['./home.component.css'],
@@ -17,30 +18,24 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     // Fetch business news
-    this.serviceComponent.getFilteredNews('business').subscribe(
-      data => {
+    this.serviceComponent.getFilteredNews('business').subscribe({
+      next: (data) => {
         console.log(data); // Check incoming data
         this.sliderArticles = data.articles.slice(0, 3);
         this.articles = data.articles.slice(3);
         this.generateRandomNews(); // Generate random news after fetching data
       },
-      error => {
-        console.error('Error fetching business news', error);
-      }
-    );
-
-    // Fetch politics news
-    this.serviceComponent.getPoliticsNews().subscribe(
-      data => {
-        console.log('Politics Data:', data); // Check incoming politics data
-        this.politicsArticles = data.articles;
-        this.politicsArticles = data.articles.slice(6, 9); // Adjust as per your requirement
+      error: (error) => {
+        console.error('Error fetching news:', error);
       },
-      error => {
-        console.error('Error fetching politics news', error);
+      complete: () => {
+        console.log('News fetching completed.');
       }
-    );
+    });
   }
+
+
+
 
   generateRandomNews() {
     // Generate random indices for recent news and popular posts

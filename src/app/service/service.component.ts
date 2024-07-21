@@ -10,13 +10,15 @@ import { forkJoin, map, Observable } from 'rxjs';
 })
 @Injectable({
   providedIn: 'root'
+
 })
 export class ServiceComponent implements OnInit {
   private apiUrl = 'https://newsapi.org/v2/top-headlines';
   private apiKey = '676f017549224f488970f1835f9db971';
   public articles: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit() {
     this.getTopHeadlines().subscribe(data => {
@@ -47,12 +49,15 @@ export class ServiceComponent implements OnInit {
     );
   }
 
-  getFilteredNews(category: string, country: string = 'us'): Observable<any> {
+  getFilteredNews(category: string, country: string = 'uk'): Observable<any> {
     const url = `${this.apiUrl}?country=${country}&category=${category}&apiKey=${this.apiKey}`;
     return this.http.get<any>(url);
   }
-  getPoliticsNews(country: string = 'us'): Observable<any> {
+
+  getPoliticsNews(country: string = 'uk'): Observable<any> {
     const url = `${this.apiUrl}?country=${country}&category=politics&apiKey=${this.apiKey}`;
     return this.http.get<any>(url);
   }
+
+
 }

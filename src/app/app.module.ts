@@ -1,3 +1,5 @@
+// noinspection AngularInvalidImportedOrDeclaredSymbol
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,12 +11,13 @@ import { HeaderComponent } from './header/header.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ContactComponent } from './contact/contact.component';
 import { ServiceComponent } from './service/service.component';
-import { HttpClientModule} from "@angular/common/http";
 import { AboutComponent } from './about/about.component';
 import {NgOptimizedImage} from "@angular/common";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
-  declarations: [
+  "bootstrap": [AppComponent],
+  "declarations": [
     AppComponent,
     SliderComponent,
     HomeComponent,
@@ -24,14 +27,14 @@ import {NgOptimizedImage} from "@angular/common";
     ServiceComponent,
     AboutComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        NgOptimizedImage,
+  "imports": [
+    BrowserModule,
+    AppRoutingModule,
+    NgOptimizedImage,
+    HttpClientModule
 
-    ],
-  providers: [],
-  bootstrap: [AppComponent]
+
+  ],
+  "providers": []
 })
 export class AppModule { }
