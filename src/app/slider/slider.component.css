@@ -2,13 +2,11 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  margin: 0 auto;
 }
 
 .slider {
   display: flex;
   transition: transform 0.5s ease;
-  width: 100%;
 }
 
 .transition {
@@ -16,53 +14,46 @@
 }
 
 .slide {
-  flex: 1 0 100%;
   min-width: 100%;
+  box-sizing: border-box;
 }
 
 .ic_alt {
-  margin-left:150px;
-  width: 80%;
-  display: flex;
-  align-items: center;
-  height: 400px;
-
-}
-
-.image,
-.content-block {
-  flex: 1;
-  height: auto;
-}
-
-.image > div,
-.content-block {
-  display: flex;
-  flex-direction: column;
+  width: 76%;
+  margin-left: 180px;
+  place-items: center;
   justify-content: center;
-  align-items: center;
+  display: flex;
+}
+
+.image {
+  height: 350px;
+  width: 90%;
 }
 
 .image > div {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .image > div > img {
   width: 100%;
-  height: 350px;
+  height: 100%;
 }
 
 .content-block {
-  background-color: whitesmoke;
   height: 350px;
-
+  width: 90%;
+  justify-content: center;
+  place-items: center;
+  display: flex;
+  background-color: whitesmoke;
 }
 
 .content {
-  margin-top:30px;
-  width: 70%;
-  height:350px;
+  margin-top: 10px;
+  width: 80%;
+  height: 80%;
   font-size: 15px;
 }
 
@@ -73,6 +64,10 @@
 
 .content > p {
   color: gray;
+}
+
+.editor {
+  width: 80%;
 }
 
 .editorspick {
@@ -99,21 +94,24 @@
 .button-slider-prev {
   width: 20px;
   position: absolute;
-  color: gray;
+  top:180px;
+  color:gray;
   opacity: 1;
-  font-size: 18px;
-  left: 10px;
-  cursor: pointer;
+  font-size:18px;
+  left:10px;
+  cursor:pointer;
+
 }
 
 .button-slider-next {
   width: 20px;
   position: absolute;
-  color: gray;
+  top:180px;
+  color:gray;
   opacity: 1;
-  font-size: 18px;
-  right: 10px;
-  cursor: pointer;
+  font-size:18px;
+  right:10px;
+  cursor:pointer;
 }
 
 .indicators {
@@ -121,7 +119,6 @@
   justify-content: center;
   margin-top: 10px;
 }
-
 .indicator {
   width: 20px;
   height: 4px;
@@ -135,54 +132,3 @@
 .indicator.active {
   background-color: green;
 }
-
-/* Responsive Styles */
-@media (max-width: 1280px) {
-  .ic_alt {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-  }
-
-  .image,
-  .content-block {
-    flex: 1;
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .button-slider-prev, .button-slider-next {
-    display: none;
-  }
-}
-
-@media (max-width: 900px) {
-  .ic_alt {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    text-align: center;
-  }
-
-  .image,
-  .content-block {
-    flex: 1;
-    max-width: 100%;
-    margin-top: 10px; /* Adjust margin for spacing */
-    text-align: center; /* Center align items */
-  }
-
-  .button-slider-prev, .button-slider-next {
-    display: none;
-  }
-}
-
-
-
-
-
-

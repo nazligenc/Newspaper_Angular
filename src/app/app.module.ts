@@ -10,10 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ContactComponent } from './contact/contact.component';
-import { ServiceComponent } from './service/service.component';
 import { AboutComponent } from './about/about.component';
 import {NgOptimizedImage} from "@angular/common";
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   "bootstrap": [AppComponent],
@@ -24,7 +23,6 @@ import {HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     CategoriesComponent,
     ContactComponent,
-    ServiceComponent,
     AboutComponent
   ],
   "imports": [
@@ -32,9 +30,17 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     NgOptimizedImage,
     HttpClientModule
-
-
   ],
+  "exports":[
+    AppComponent,
+    SliderComponent,
+    HomeComponent,
+    HeaderComponent,
+    CategoriesComponent,
+    ContactComponent,
+    AboutComponent
+  ],
+
   "providers": []
 })
 export class AppModule { }

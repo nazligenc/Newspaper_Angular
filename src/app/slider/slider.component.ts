@@ -1,55 +1,55 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceComponent } from '../service/service.component';
+import { NewsServiceService } from "../news-service.service";
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css'],
-  providers: [ServiceComponent]
+  providers: [NewsServiceService]
 })
 export class SliderComponent implements OnInit {
   currentIndex = 0;
   isTransitioning = false;
-  slides: any[] = [];
+  posts: any;
+  visiblePosts: any[] = []; // İlk 3 haber için değişken
 
-  constructor(private serviceComponent: ServiceComponent) {}
+  constructor(private newsService: NewsServiceService) {}
 
-  ngOnInit() {
-    this.serviceComponent.getTopHeadlines().subscribe(
-      data => {
-        console.log('Received data:', data);
-        this.slides = data.articles.slice(0, 3).map((article: any) => ({
-          image: article.urlToImage || '/assets/default-image.jpg',
-          edit: "EDITOR'S PICK",
-          title: article.title,
-          description: article.description,
-          author: article.author || 'Unknown Author',
-          date: article.publishedAt ? new Date(article.publishedAt).toDateString() : 'Unknown Date'
-        }));
-        console.log('Slides:', this.slides);
+  ngOnInit(): void {
+    this.newsService.getPosts().subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.posts = data;
+        this.visiblePosts = this.posts.articles.slice(0, 3); // İlk 3 öğeyi seçin
       },
-      error => {
-        console.error('Error fetching data:', error);
+      error: (error: any) => {
+        console.error('Error fetching posts', error);
+      },
+      complete: () => {
+        console.log('API çağrısı tamamlandı.');
       }
-    );
+    });
   }
 
   nextSlide() {
+    if (this.isTransitioning) return;
     this.isTransitioning = true;
-    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
-    setTimeout(() => this.isTransitioning = false, 500);
+    this.currentIndex = (this.currentIndex + 1) % this.visiblePosts.length; // Döngüsel geçiş
+    setTimeout(() => this.isTransitioning = false, 500); // CSS geçişi ile eşleşen zaman aşımı
   }
 
   prevSlide() {
+    if (this.isTransitioning) return;
     this.isTransitioning = true;
-    this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
-    setTimeout(() => this.isTransitioning = false, 500);
+    this.currentIndex = (this.currentIndex - 1 + this.visiblePosts.length) % this.visiblePosts.length; // Döngüsel geçiş
+    setTimeout(() => this.isTransitioning = false, 500); // CSS geçişi ile eşleşen zaman aşımı
   }
 
   goToSlide(index: number) {
+    if (this.isTransitioning) return;
     this.isTransitioning = true;
-    this.currentIndex = index;
-    setTimeout(() => this.isTransitioning = false, 500);
+    this.currentIndex = index % this.visiblePosts.length; // Döngüsel geçiş
+    setTimeout(() => this.isTransitioning = false, 500); // CSS geçişi ile eşleşen zaman aşımı
   }
 
   getTransform() {
