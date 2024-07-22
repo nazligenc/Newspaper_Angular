@@ -1,6 +1,6 @@
-import {HttpClient, HttpResponse} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import { Observable} from 'rxjs';
 
 
 @Injectable({
@@ -13,10 +13,10 @@ export class NewsServiceService{
 
   constructor(private http: HttpClient) { }
 
-  getPosts(): Observable<any[]> {
-    return this.http.get<any[]>(this.url);
+  getPosts(page: number, pageSize: number): Observable<any[]> {
+    const url = `${this.url}&page=${page}&pageSize=${pageSize}`;
+    return this.http.get<any[]>(url);
   }
-
 
 
 }

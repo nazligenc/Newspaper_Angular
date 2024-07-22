@@ -6,96 +6,50 @@
 <div class="alt-container">
   <div class="altcontents-block">
     <div class="altcontents-left">
-      <div class="contents">
+      <div class="contents" >
         <div class="header">
           <span class="editorspick2">Editor's Pick</span>
-          <div class="altcontents-image">
+          <div class="altcontents-image" >
             <div>
-              <img src="/assets/image1.jpg">
+              <img src="/assets/breakingNews.jpg">
             </div>
           </div>
-          <div class="altcontents-text">
-            <h2></h2>
-            <p class="text"></p>
+          <div class="altcontents-text" (click)="goToDetail(hdata[0].url)">
+            <h2>{{ hdata[0]?.title }}</h2>
+            <p class="text">{{ hdata[0]?.description }}</p>
             <div style="display: flex; flex-direction: column">
-              <span></span>
-              <span></span>
+              <span>{{ hdata[0]?.author }}</span>
+              <span>{{ hdata[0]?.publishedAt| date:'mediumDate'}}</span>
             </div>
-
           </div>
         </div>
-        <div class="columns-left">
-          <div class="c1" >
+        <div class="columns-left" >
+          <div class="c1" *ngFor="let article of hdata.slice(1, 4)" (click)="goToDetail(article.url)">
             <div class="c1-image">
-              <img src="/assets/image1.jpg">
+              <img [src]="article.urlToImage || '/assets/breakingNews.jpg'">
             </div>
             <div class="c1-content">
-              <h4></h4>
-              <span></span>
-
-
-            </div>
-          </div>
-          <div class="c2" >
-            <div class="c2-image">
-              <img src="/assets/image1.jpg">
-            </div>
-            <div class="c2-content">
-              <h4></h4>
-              <span></span>
-            </div>
-          </div>
-          <div class="c3" >
-            <div class="c3-image">
-              <img src="/assets/image1.jpg">
-            </div>
-            <div class="c3-content">
-              <h4></h4>
-              <span></span>
+              <h4>{{ article.title }}</h4>
+              <div class="c-author"> <span>{{ article.author }} in {{ article.source.name }}</span></div>
+              <span>{{ article.publishedAt| date:'mediumDate'}}</span>
             </div>
           </div>
         </div>
-
       </div>
-
-
-
     </div>
     <div class="altcontent-right">
       <div class="header-right">Trending</div>
-      <div class="right-content" >
-        <div class="first">
-          <div class="first-number">01</div>
+      <div class="right-content">
+        <div class="first" *ngFor="let article of hdata.slice(4, 8); let i = index" (click)="goToDetail(article.url)" >
+          <div class="first-number">{{ ('0' + (i + 1)).slice(-2) }}</div>
           <div class="first-content">
-            <h4></h4>
-            <span></span>
-          </div>
-        </div>
-        <div class="second">
-          <div class="second-number">02</div>
-          <div class="second-content" >
-            <h4></h4>
-            <span></span>
-          </div>
-        </div>
-        <div class="third">
-          <div class="third-number">03</div>
-          <div class="third-content">
-            <h4></h4>
-            <span></span>
-          </div>
-        </div>
-        <div class="fourth">
-          <div class="fourth-number">04</div>
-          <div class="fourth-content" >
-            <h4></h4>
-            <span></span>
+            <h4>{{ article.title }}</h4>
+            <span>{{ article.publishedAt| date:'mediumDate'}}</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>
 <div class="seealltrends-button">
   <button class="seealltrends">SEE ALL TRENDS
@@ -298,7 +252,14 @@
   <button class="seeallpopular">SEE ALL POPULAR
     <i class="fa-solid fa-angle-right"></i>
   </button>
+  <div class="pagination-buttons">
+    <button class= "prev" (click)="prevPage()" [disabled]="currentPage === 1"><</button>
+    <button class="next" (click)="nextPage()">></button>
+
+  </div>
 </div>
+
+
 
 <div class="last">
   <div class="last-header">Newsletter Subscribe </div>

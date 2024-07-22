@@ -14,6 +14,7 @@ import { AboutComponent } from './about/about.component';
 import {NgOptimizedImage} from "@angular/common";
 import { HttpClientModule} from "@angular/common/http";
 
+
 @NgModule({
   "bootstrap": [AppComponent],
   "declarations": [
@@ -23,7 +24,8 @@ import { HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     CategoriesComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+
   ],
   "imports": [
     BrowserModule,

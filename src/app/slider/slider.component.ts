@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsServiceService } from "../news-service.service";
 
+
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
@@ -16,11 +17,11 @@ export class SliderComponent implements OnInit {
   constructor(private newsService: NewsServiceService) {}
 
   ngOnInit(): void {
-    this.newsService.getPosts().subscribe({
+    this.newsService.getPosts(1,3).subscribe({
       next: (data: any) => {
         console.log(data);
         this.posts = data;
-        this.visiblePosts = this.posts.articles.slice(0, 3); // İlk 3 öğeyi seçin
+        this.visiblePosts = this.posts.articles.slice(0, 3);
       },
       error: (error: any) => {
         console.error('Error fetching posts', error);
@@ -58,5 +59,8 @@ export class SliderComponent implements OnInit {
 
   onImageError(event: any) {
     event.target.src = '/assets/breakingNews.jpg';
+  }
+  goToDetail(url: string) {
+    window.open(url, '_blank'); // Yeni sekmede URL'yi açar
   }
 }

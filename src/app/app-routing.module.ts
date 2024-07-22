@@ -5,6 +5,7 @@ import {CategoriesComponent} from "./categories/categories.component";
 import {ContactComponent} from "./contact/contact.component";
 import {AboutComponent} from "./about/about.component";
 
+
 const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:"home",component:HomeComponent},

@@ -48,6 +48,7 @@
   place-items: center;
   display: flex;
   background-color: whitesmoke;
+  cursor:pointer;
 }
 
 .content {
