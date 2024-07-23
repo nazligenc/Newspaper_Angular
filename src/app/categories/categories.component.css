@@ -6,7 +6,7 @@
   color: #333;
   justify-content: center;
   display: flex;
-  margin-left: -50px;
+  margin-left: -10px;
 }
 
 .container {
@@ -22,6 +22,7 @@
 }
 
 .category {
+  margin-left: 20px;
   margin-top: 10px;
   width: 70%;
   height: 10px;
