@@ -60,13 +60,13 @@
   <div class="ic_alt">
     <div class="image">
       <div>
-        <img src="/assets/image1.jpg">
+        <img [src]="hdata[0].urlToImage || '/assets/breakingNews.jpg'">
       </div>
 
 
 
     </div>
-    <div class="content-block">
+    <div class="content-block" (click)="goToDetail(hdata[0].url)">
       <div class="content">
         <span class="editorspick">EDITOR'S PICK</span>
         <div class="editor">
@@ -87,40 +87,18 @@
 
 </div>
 <div class="politics-business">
-  <div class="politics">
+  <div class="politics" >
     <div class="header-politics">Politics</div>
     <div class="politics-content">
-      <div class="pc1">
-        <div class="pc1-image">
-          <img src="/assets/image1.jpg">
+      <div class="pc1" *ngFor="let article of politicsNews.slice(0,3); let i = index" [class]="'pc' + (i + 1)" (click)="goToDetail(article.url)" >
+        <div class="pc{{ i + 1 }}-image">
+          <img [src]="article.urlToImage || '/assets/breakingNews.jpg'" alt="{{ article.title }}">
         </div>
-        <div class="pc1-content">
-          <h2>News Needs to Meet Its Audiences Where They Are</h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-          <span>Dave Rogers</span><br>
-          <span>Jun14</span>
-        </div>
-      </div>
-      <div class="pc2">
-        <div class="pc2-image">
-          <img src="/assets/image1.jpg">
-        </div>
-        <div class="pc2-content">
-          <h2>News Needs to Meet Its Audiences Where They Are</h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-          <span>Dave Rogers</span><br>
-          <span>Jun14</span>
-        </div>
-      </div>
-      <div class="pc3">
-        <div class="pc3-image">
-          <img src="/assets/image1.jpg">
-        </div>
-        <div class="pc3-content">
-          <h2>News Needs to Meet Its Audiences Where They Are</h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-          <span>Dave Rogers</span><br>
-          <span>Jun14</span>
+        <div class="pc{{ i + 1 }}-content">
+          <h2>{{ article.title }}</h2>
+          <p>{{ article.description }}</p>
+          <span>{{ article.author }}</span><br>
+          <span>{{ article.publishedAt | date }}</span>
         </div>
       </div>
     </div>
@@ -129,38 +107,16 @@
 
   <div class="business">
     <div class="header-business">Business</div>
-    <div class="business-content">
-      <div class="bc1">
-        <div class="bc1-image">
-          <img src="/assets/image1.jpg">
+    <div class="business-content" >
+      <div class="bc1" *ngFor="let article of businessNews.slice(0,3); let i = index" [class]="'bc' + (i + 1)"(click)="goToDetail(article.url)"  >
+        <div class="bc{{ i + 1 }}-image">
+          <img [src]="article.urlToImage || '/assets/breakingNews.jpg'" alt="{{ article.title }}">
         </div>
-        <div class="bc1-content">
-          <h2>News Needs to Meet Its Audiences Where They Are</h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-          <span>Dave Rogers</span><br>
-          <span>Jun14</span>
-        </div>
-      </div>
-      <div class="bc2">
-        <div class="bc2-image">
-          <img src="/assets/image1.jpg">
-        </div>
-        <div class="bc2-content">
-          <h2>News Needs to Meet Its Audiences Where They Are</h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-          <span>Dave Rogers</span><br>
-          <span>Jun14</span>
-        </div>
-      </div>
-      <div class="bc3">
-        <div class="bc3-image">
-          <img src="/assets/image1.jpg">
-        </div>
-        <div class="bc3-content">
-          <h2>News Needs to Meet Its Audiences Where They Are</h2>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-          <span>Dave Rogers</span><br>
-          <span>Jun14</span>
+        <div class="bc{{ i + 1 }}-content">
+          <h2>{{ article.title }}</h2>
+          <p>{{ article.description }}</p>
+          <span>{{ article.author }}</span><br>
+          <span>{{ article.publishedAt | date }}</span>
         </div>
       </div>
     </div>
@@ -173,79 +129,48 @@
 <div class="recent-popular">
   <div class="recentnews">
     <div class="rn-header">Recent News</div>
-    <div class="rn1">
+
+    <div class="rn1" *ngFor="let article of hdata | slice:0:2">
       <div class="r1-content">
-        <h2>News Needs to Meet Its Audiences Where They Are</h2>
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-        <span>Dave Rogers</span><br>
-        <span>Jun14</span>
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.description }}</p>
+        <span>{{ article.author || 'Unknown' }}</span><br>
+        <span>{{ article.publishedAt | date:'mediumDate' }}</span>
       </div>
     </div>
-    <div class="rn1">
-      <div class="r1-content">
-        <h2>News Needs to Meet Its Audiences Where They Are</h2>
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
-        <span>Dave Rogers</span><br>
-        <span>Jun14</span>
-      </div>
-    </div>
-    <div class="rn2">
+
+    <div class="rn2" *ngIf="hdata.length > 0">
       <span class="rn2editorspick">EDITOR'S PICK</span>
-      <h2>News Needs to Meet Its Audiences Where They Are</h2>
-      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam. </p>
+      <h2>{{ hdata[2].title }}</h2>
+      <p>{{ hdata[2].description }}</p>
 
       <div style="display: flex; flex-direction: column">
-        <span>Dave Rogers</span>
-        <span>Jun14 </span>
+        <span>{{ hdata[2].author || 'Unknown' }}</span>
+        <span>{{ hdata[2].publishedAt | date:'mediumDate' }}</span>
       </div>
       <div class="i1">
-        <img src="/assets/image1.jpg">
-
+        <img [src]="hdata[2].urlToImage || '/assets/breakingNews.jpg'">
       </div>
       <div class="i2">
-        <img src="/assets/image1.jpg">
+        <img [src]="hdata[3].urlToImage || '/assets/breakingNews.jpg'">
       </div>
       <div class="i3">
-        <img src="/assets/image1.jpg">
+        <img [src]="hdata[4].urlToImage || '/assets/breakingNews.jpg'">
       </div>
     </div>
-
-
   </div>
+
   <div class="popularposts">
     <div class="pp-header">Popular Posts</div>
-    <div class="pp1">
-      <div class="pp1-number">01</div>
+
+    <div class="pp1" *ngFor="let article of hdata | slice:3:7; let i = index"> <!-- Display next 4 articles -->
+      <div class="pp1-number">{{ i + 1 }}</div>
       <div class="pp1-content">
-        <h4>News Needs to Meet Its Audiences Where They Are</h4>
-        <span>Dave Rogers in News</span>
+        <h4>{{ article.title }}</h4>
+        <span>{{ article.author || 'Unknown' }} in News</span>
       </div>
     </div>
-    <div class="pp2">
-      <div class="pp2-number">02</div>
-      <div class="pp2-content">
-        <h4>News Needs to Meet Its Audiences Where They Are</h4>
-        <span>Dave Rogers in News</span>
-      </div>
-    </div>
-    <div class="pp3">
-      <div class="pp3-number">03</div>
-      <div class="pp3-content">
-        <h4>News Needs to Meet Its Audiences Where They Are</h4>
-        <span>Dave Rogers in News</span>
-      </div>
-    </div>
-    <div class="pp4">
-      <div class="pp4-number">04</div>
-      <div class="pp4-content">
-        <h4>News Needs to Meet Its Audiences Where They Are</h4>
-        <span>Dave Rogers in News</span>
-      </div>
-    </div>
-
-
   </div>
-
 </div>
 
 <div class="seeallpopular-button">
