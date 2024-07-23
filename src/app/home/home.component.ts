@@ -5,7 +5,7 @@ import { NewsServiceService } from "../news-service.service";
 @Component({
   selector: 'app-home',
   styleUrls: ['./home.component.css'],
-  templateUrl: './home.component.html'
+  templateUrl: `./home.component.html`
 })
 export class HomeComponent implements OnInit {
   politicsNews: any[] = [];
