@@ -65,5 +65,8 @@ export class CategoriesComponent implements OnInit{
     this.selectedCategory = category;
     this.fetchNews(category, 1, 10); // Fetch news for the selected category
   }
+  goToDetail(url: string) {
+    window.open(url, '_blank'); // Yeni sekmede URL'yi açar
+  }
 
 }

@@ -43,7 +43,7 @@
   <div class="news-container">
     <h2>Filtered Results</h2>
     <div *ngFor="let article of businessNews" class="news-item">
-      <div class="news-content">
+      <div class="news-content" (click)="goToDetail(article.url)">
         <h3>{{ article.title }}</h3>
         <p>{{ article.description }}</p>
         <p class="news-source">{{ article.source.name }}</p>
