@@ -1,112 +1,57 @@
+<!-- categories.component.html -->
 <app-header></app-header>
 
 <div class="container d-flex flex-column" style="margin-top: 60px">
   <div class="text">CATEGORIES</div>
 
-  <div [routerLink]="['/category']" [attr.data-value]="'business'" class="category-link">
+  <div (click)="onCategoryChange('business')" class="category-link">
     <div class="d-flex category">
       Business
     </div>
   </div>
 
-  <div [routerLink]="['/category']" [attr.data-value]="'entertainment'" class="category-link">
+  <div (click)="onCategoryChange('entertainment')" class="category-link">
     <div class="d-flex category">
       Entertainment
     </div>
   </div>
 
-  <div [routerLink]="['/category']" [attr.data-value]="'health'" class="category-link">
+  <div (click)="onCategoryChange('health')" class="category-link">
     <div class="d-flex category">
       Health
     </div>
   </div>
 
-  <div [routerLink]="['/category']" [attr.data-value]="'science'" class="category-link">
+  <div (click)="onCategoryChange('science')" class="category-link">
     <div class="d-flex category">
       Science
     </div>
   </div>
 
-  <div [routerLink]="['/category']" [attr.data-value]="'sports'" class="category-link">
+  <div (click)="onCategoryChange('sports')" class="category-link">
     <div class="d-flex category">
       Sports
     </div>
   </div>
 
-  <div [routerLink]="['/category']" [attr.data-value]="'technology'" class="category-link">
+  <div (click)="onCategoryChange('technology')" class="category-link">
     <div class="d-flex category">
       Technology
     </div>
   </div>
+
   <div class="news-container">
     <h2>Filtered Results</h2>
-
-    <!-- News Item 1 -->
-    <div class="news-item">
+    <div *ngFor="let article of businessNews" class="news-item">
       <div class="news-content">
-        <h3>53’lük Sibel Can oryantal dansıyla yıktı geçti: ’41 kere maşallah!’ İlk eşi Hakan Ural ’yaşayan efsane’ demişti! İddialı videoya yorum yağdı - Takvim</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis fermentum sem. Etiam lacinia tellus vehicula, sollicitudin augue vitae, consectetur purus. Nullam tempus vitae lacus cursus congue. Praesent porttitor risus elit, at suscipit sem accumsan eget. Nullam non arcu ipsum.</p>
-        <p class="news-source">Takvim</p>
-        <p class="news-date">2024-07-22T11:48:00Z</p>
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.description }}</p>
+        <p class="news-source">{{ article.source.name }}</p>
+        <p class="news-date">{{ article.publishedAt | date }}</p>
       </div>
       <div class="news-image">
-        <img src="https://via.placeholder.com/150" alt="News Image 1" />
-      </div>
-    </div>
-
-    <!-- News Item 2 -->
-    <div class="news-item">
-      <div class="news-content">
-        <h3>Rüştü Onur Atilla ile yeni sevgilisi Nez'den yeni pozlar - Cumhuriyet</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis fermentum sem. Etiam lacinia tellus vehicula, sollicitudin augue vitae, consectetur purus. Nullam tempus vitae lacus cursus congue. Praesent porttitor risus elit, at suscipit sem accumsan eget. Nullam non arcu ipsum.</p>
-        <p class="news-source">Cumhuriyet</p>
-        <p class="news-date">2024-07-22T10:52:40Z</p>
-      </div>
-      <div class="news-image">
-        <img src="https://via.placeholder.com/150" alt="News Image 2" />
-      </div>
-    </div>
-
-    <!-- News Item 3 -->
-    <div class="news-item">
-      <div class="news-content">
-        <h3>Başlık 3 - Kaynak</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis fermentum sem. Etiam lacinia tellus vehicula, sollicitudin augue vitae, consectetur purus. Nullam tempus vitae lacus cursus congue. Praesent porttitor risus elit, at suscipit sem accumsan eget. Nullam non arcu ipsum.</p>
-        <p class="news-source">Kaynak</p>
-        <p class="news-date">2024-07-21T15:30:25Z</p>
-      </div>
-      <div class="news-image">
-        <img src="https://via.placeholder.com/150" alt="News Image 3" />
-      </div>
-    </div>
-
-    <!-- News Item 4 -->
-    <div class="news-item">
-      <div class="news-content">
-        <h3>Başlık 4 - Kaynak</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis fermentum sem. Etiam lacinia tellus vehicula, sollicitudin augue vitae, consectetur purus. Nullam tempus vitae lacus cursus congue. Praesent porttitor risus elit, at suscipit sem accumsan eget. Nullam non arcu ipsum.</p>
-        <p class="news-source">Kaynak</p>
-        <p class="news-date">2024-07-21T14:22:18Z</p>
-      </div>
-      <div class="news-image">
-        <img src="https://via.placeholder.com/150" alt="News Image 4" />
-      </div>
-    </div>
-
-    <!-- News Item 5 -->
-    <div class="news-item">
-      <div class="news-content">
-        <h3>Başlık 5 - Kaynak</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis fermentum sem. Etiam lacinia tellus vehicula, sollicitudin augue vitae, consectetur purus. Nullam tempus vitae lacus cursus congue. Praesent porttitor risus elit, at suscipit sem accumsan eget. Nullam non arcu ipsum.</p>
-        <p class="news-source">Kaynak</p>
-        <p class="news-date">2024-07-21T13:12:05Z</p>
-      </div>
-      <div class="news-image">
-        <img src="https://via.placeholder.com/150" alt="News Image 5" />
+        <img [src]="article.urlToImage ? article.urlToImage : '/assets/breakingNews.jpg'" alt="News Image" />
       </div>
     </div>
   </div>
-
 </div>
-
-
