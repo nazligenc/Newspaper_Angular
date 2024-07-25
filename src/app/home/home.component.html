@@ -131,7 +131,7 @@
     <div class="rn-header">Recent News</div>
 
     <div class="rn1" *ngFor="let article of hdata | slice:0:2">
-      <div class="r1-content">
+      <div class="r1-content" (click)="goToDetail(article.url)">
         <h2>{{ article.title }}</h2>
         <p>{{ article.description }}</p>
         <span>{{ article.author || 'Unknown' }}</span><br>
@@ -141,7 +141,7 @@
 
     <div class="rn2" *ngIf="hdata.length > 0">
       <span class="rn2editorspick">EDITOR'S PICK</span>
-      <h2>{{ hdata[2].title }}</h2>
+      <h2 (click)="goToDetail(hdata[2].url)">{{ hdata[2].title }}</h2>
       <p>{{ hdata[2].description }}</p>
 
       <div style="display: flex; flex-direction: column">
@@ -165,7 +165,7 @@
 
     <div class="pp1" *ngFor="let article of hdata | slice:3:7; let i = index"> <!-- Display next 4 articles -->
       <div class="pp1-number">{{ i + 1 }}</div>
-      <div class="pp1-content">
+      <div class="pp1-content" (click)="goToDetail(article.url)">
         <h4>{{ article.title }}</h4>
         <span>{{ article.author || 'Unknown' }} in News</span>
       </div>

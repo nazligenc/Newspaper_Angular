@@ -719,6 +719,7 @@
 
 }
 .r1-content{
+  cursor: pointer;
   >p{
     width: 99%;
     font-size: 15px;
@@ -752,6 +753,7 @@
   >h2{
     font-family: sans-serif;
     font-size: 15px;
+    cursor: pointer;
   }
 }
 .i1{
@@ -823,6 +825,7 @@
 .pp1-content{
   width: 70%;
   margin-top:-166px;
+  cursor: pointer;
   >h4{
     width:80%;
     margin-left:80px;
